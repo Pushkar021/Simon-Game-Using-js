@@ -39,7 +39,7 @@ body {
 }
 
 .main {
-  margin-top: 70px;
+  margin-top: 20px;
   position: relative;
 }
 #center-circle {
@@ -109,8 +109,11 @@ body {
     height: 150px;
     width: 150px;
   }
-   #center-circle {
-    width:150px; 
-    height: 150px; 
+  #center-circle {
+    width: 150px;
+    height: 150px;
   }
+.main{
+  margin-top: 70px;
+}
 }
