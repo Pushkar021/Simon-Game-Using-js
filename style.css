@@ -1,0 +1,116 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.container {
+  height: 200px;
+  width: 200px;
+  margin: 2px;
+  display: inline-block;
+  cursor: pointer;
+}
+.container2 {
+  height: 200px;
+  width: 200px;
+  margin: 2px;
+  display: inline-block;
+}
+.container:hover {
+  box-shadow: inset 0 0 50px black; /* Adjust values as needed */
+  /* box-shadow: 0 0 20px hotpink; Adjust values as needed */
+}
+.top-left-circle {
+  background-color: green;
+  border-top-left-radius: 100%;
+}
+.top-right-circle {
+  background-color: red;
+  border-top-right-radius: 100%;
+}
+.bottom-left-circle {
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+}
+.bottom-right-circle {
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+}
+
+.main {
+  margin-top: 70px;
+  position: relative;
+}
+#center-circle {
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.white-circle {
+  background-color: white;
+}
+.hide {
+  display: none;
+}
+.pointstable {
+  color: white;
+}
+.start {
+  background-color: #6420aa;
+  border: solid;
+  height: 50px;
+  width: 200px;
+  color: whitesmoke;
+  border-radius: 20px;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 17px;
+  margin-top: 20px;
+  /* box-shadow: 5px 2px 20px red; */
+}
+
+.start:hover {
+  opacity: 0.7;
+  background-color: whitesmoke;
+  color: black;
+}
+.pointstable {
+  margin-top: 30px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 17px;
+  box-shadow: 5px 2px 20px white;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Styles for devices with a width of 320px to 767px (commonly used for mobile devices) */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  /* Your mobile styles go here */
+  body {
+    font-size: 14px;
+  }
+  .container {
+    height: 150px;
+    width: 150px;
+  }
+  .container2 {
+    height: 150px;
+    width: 150px;
+  }
+   #center-circle {
+    width:150px; 
+    height: 150px; 
+  }
+}

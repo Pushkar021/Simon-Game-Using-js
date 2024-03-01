@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="startdiv"><button class="start">Start Game</button>
+        <div class="pointstable">POINTS : 0</div>
+    </div>
+
+    <div class="main">
+        <audio src="sounds_wrong.mp3" id="wrong" preload="auto"></audio>
+        <audio id="click01" src="ElevenLabs_2024-02-29T13_32_52_James.mp3" preload="auto"></audio>
+
+        <div class="upperpart">
+            <div value="top-left-circle" class="container top-left-circle"></div>
+            <div value="top-right-circle" class="container top-right-circle"></div>
+        </div>
+        <div class="centerpart">
+            <div class="container2" id="center-circle"></div>
+        </div>
+        <div class="lowerpart">
+            <div value="bottom-left-circle" class="container bottom-left-circle"></div>
+            <div value="bottom-right-circle" class="container bottom-right-circle"></div>
+        </div>
+    </div>
+
+    <div class="blackhole"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
