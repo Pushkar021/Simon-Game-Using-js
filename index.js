@@ -52,7 +52,7 @@ const handlePanelClick = (event) => {
     pointstable.innerText = `POINTS : ${points} You Lost!`;
     pointstable.style.boxShadow = "5px 2px 20px red";
     wrong();
-    playRound();
+    
   }
 };
 
@@ -63,8 +63,9 @@ const playRound = async () => {
     correctPanels.push(getRandomPanel());
   }
 
-  for (let i = 0; i < flashesPerRound; i++) {
-    await flash(correctPanels[i]);
+  for (const panel of correctPanels) {
+    await flash(panel);
+    await new Promise((resolve) => setTimeout(resolve, 1000)); 
   }
 };
 
