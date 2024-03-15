@@ -6,8 +6,10 @@ const pointstable = document.querySelector(".pointstable");
 const startbtn = document.querySelector(".start");
 const wrong01 = document.querySelector("#wrong");
 let points = 0;
+let level = 1;
 let flashesPerRound = 1;
 let correctPanels = [];
+let gamePattern = [];
 
 const flash = (panel) => {
   return new Promise((resolve) => {
@@ -26,10 +28,8 @@ const flash = (panel) => {
 const handlePanelClick = (event) => {
   const clickedPanel = event.target;
 
-  const correctIndex = correctPanels.indexOf(clickedPanel);
-
-  if (correctIndex !== -1) {
-    correctPanels.splice(correctIndex, 1);
+  if (clickedPanel === correctPanels[0]) {
+    correctPanels.shift();
 
     if (correctPanels.length === 0) {
       setTimeout(() => {
@@ -38,7 +38,9 @@ const handlePanelClick = (event) => {
         pointstable.innerText = `POINTS : ${points} You Won!`;
         pointstable.style.boxShadow = "5px 2px 20px rgb(105, 239, 105)";
         setTimeout(() => {
+          level++;
           flashesPerRound++;
+          console.log("Level:", level);
           console.log("Flashes per round:", flashesPerRound);
 
           playRound();
@@ -47,25 +49,24 @@ const handlePanelClick = (event) => {
     }
   } else {
     points = 0;
+    level = 1;
     correctPanels = [];
+    gamePattern = [];
     console.log("You lost. Points:", points);
     pointstable.innerText = `POINTS : ${points} You Lost!`;
     pointstable.style.boxShadow = "5px 2px 20px red";
     wrong();
-    
   }
 };
 
 const playRound = async () => {
-  correctPanels = [];
+  gamePattern.push(getRandomPanel());
 
-  for (let i = 0; i < flashesPerRound; i++) {
-    correctPanels.push(getRandomPanel());
-  }
+  correctPanels = gamePattern.slice();
 
-  for (const panel of correctPanels) {
+  for (const panel of gamePattern) {
     await flash(panel);
-    await new Promise((resolve) => setTimeout(resolve, 1000)); 
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
 };
 
@@ -84,11 +85,6 @@ const getSoundName = (panel) => {
   return "";
 };
 
-// const playSound = (name) => {
-//   var audio = new Audio("sounds_" + name + ".mp3");
-//   audio.play();
-// };
-
 topleft.addEventListener("click", handlePanelClick);
 topright.addEventListener("click", handlePanelClick);
 bottomleft.addEventListener("click", handlePanelClick);
@@ -96,8 +92,10 @@ bottomright.addEventListener("click", handlePanelClick);
 
 startbtn.addEventListener("click", () => {
   points = 0;
+  level = 1;
   flashesPerRound = 1;
   correctPanels = [];
+  gamePattern = [];
   playRound();
 });
 
@@ -120,7 +118,19 @@ bottomright.addEventListener("click", () => {
 bottomleft.addEventListener("click", () => {
   playSound("yellow");
 });
+
 function playSound(name) {
-  var audio = new Audio("sounds_" + name + ".mp3");
+  let audio = new Audio("sounds_" + name + ".mp3");
   audio.play();
+}
+
+
+function toggleDarkMode() {
+  const body = document.querySelector("body");
+  const darkModeButton = document.querySelector(".dark-mode-button");
+
+  body.classList.toggle("dark-mode");
+  darkModeButton.textContent = body.classList.contains("dark-mode")
+    ? "Dark Mode"
+    : "Light Mode";
 }
