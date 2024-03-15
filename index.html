@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="icon" href="joystick.png"></i>">
+    <link rel="icon" href="joystick.png"></i>
 </head>
 
 <body>
+    <button class="dark-mode-button" onclick="toggleDarkMode()">Light Mode</button>
     <div class="startdiv"><button class="start">Start Game</button>
         <div class="pointstable">POINTS : 0</div>
     </div>
@@ -22,15 +23,15 @@
         <audio id="click01" src="ElevenLabs_2024-02-29T13_32_52_James.mp3" preload="auto"></audio>
 
         <div class="upperpart">
-            <div value="top-left-circle" class="container top-left-circle"></div>
-            <div value="top-right-circle" class="container top-right-circle"></div>
+            <div value="top-left-circle" class="container top-left-circle topleft"></div>
+            <div value="top-right-circle" class="container top-right-circle topright"></div>
         </div>
         <div class="centerpart">
             <div class="container2" id="center-circle"></div>
         </div>
         <div class="lowerpart">
-            <div value="bottom-left-circle" class="container bottom-left-circle"></div>
-            <div value="bottom-right-circle" class="container bottom-right-circle"></div>
+            <div value="bottom-left-circle" class="container bottom-left-circle bottomleft"></div>
+            <div value="bottom-right-circle" class="container bottom-right-circle bottomright"></div>
         </div>
     </div>
 
