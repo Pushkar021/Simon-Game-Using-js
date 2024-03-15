@@ -113,7 +113,39 @@ body {
     width: 150px;
     height: 150px;
   }
-.main{
-  margin-top: 70px;
+  .main {
+    margin-top: 70px;
+  }
+}
+.dark-mode-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+.dark-mode {
+  background-color: white;
+  color: black;
+  #center-circle {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .pointstable {
+    box-shadow: 5px 2px 20px black;
+    color: black;
+  }
+  .white-circle {
+  background-color: black;
 }
 }
